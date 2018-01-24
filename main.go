@@ -127,6 +127,11 @@ func rootHandler(w http.ResponseWriter, r *http.Request) {
 	fmt.Fprint(w, chain)
 }
 
+func addHandler(w http.ResponseWriter, r *http.Request) {
+	w.Header().Set("Content-Type", "text/html")
+	w.WriteHeader(http.StatusOK)
+}
+
 func main() {
 	http.HandleFunc("/", rootHandler)
 	http.ListenAndServe(":8080", nil)
